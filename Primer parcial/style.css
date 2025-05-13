@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: "consolas";
+    background-color: rgb(3, 35, 83);
+  }
+  
+  .colorBlanco {
+    color: white;
+  }
+  
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    height: 100vh;
+    font-family: "consolas"
+  }
+  
+  header {
+    grid-column: 1 / 3;
+    background-color: rgb(9, 104, 247);
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "consolas";
+    font-weight: 300;
+  }
+  
+  nav#panel-izquierda {
+    grid-column: 1 / 2;
+    background-color: rgb(9, 104, 247);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  section#principal {
+    grid-column: 2 / 3;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  #series {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(9, 104, 247);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px rgb(5, 58, 138);
+  }
+  
+  button:hover {background-color: rgb(5, 62, 148);}
+  
+  button:active {
+    background-color: rgb(5, 62, 148);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  @media (max-width: 899px) {
+    #series {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 549px) {
+    #series {
+      grid-template-columns: 1fr;
+    }
+  
+    main {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+  
+    nav#panel-izquierda,
+    section#principal {
+      grid-column: 1 / 2;
+    }
+  }
