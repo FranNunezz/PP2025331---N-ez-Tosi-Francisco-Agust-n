@@ -70,7 +70,9 @@ class Controlador {
             this.Modelo.Series.forEach((serie) => {
             const elemento = serie.createHtmlElement();
             this.Vista.elementos.series.appendChild(elemento);
+            this.registrarClickBotonGuardar()
         });
+
     }
 
     paginaAnterior() {
@@ -93,7 +95,34 @@ class Controlador {
         this.Vista.elementos.btn_siguiente.addEventListener("click", () => {
             this.paginaSiguiente();
         });
+
+        const seriesActuales = this.Vista.elementos.series.querySelectorAll("div");
+        seriesActuales.forEach((serie) => {
+            serie.querySelector("button").addEventListener("click", () => {
+                let nombreSerie = serie.querySelector("h2").innerText;
+                console.log("aaaaaaaa");
+                this.Modelo.Series.forEach((s) => {
+                    if (s.name == nombreSerie) {
+                        Serie.guardarSerie(s);
+                    }
+                });
+            });
+        });
     }
+
+    registrarClickBotonGuardar() {
+        const seriesActuales = this.Vista.elementos.series.querySelectorAll("div");
+            seriesActuales.forEach((serie) => {
+            serie.querySelector("button").addEventListener("click", () => {
+                let nombreSerie = serie.querySelector("h2").innerText;
+                this.Modelo.Series.forEach((s) => {
+                    if (s.name == nombreSerie) {
+                        Serie.guardarSerie(s);
+                    }
+                });
+            });
+        });
+        }
 }
 
 var modelo = new Modelo();

@@ -64,7 +64,7 @@ body {
   
   button:active {
     background-color: rgb(5, 62, 148);
-    box-shadow: 0 5px #666;
+    box-shadow: 0 5px rgb(4, 38, 90);
     transform: translateY(4px);
   }
 
